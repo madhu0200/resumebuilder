@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>resume builder</title>
+    <style>
+        body,input
+        {
+            padding: 5px;
+        }
+        div
+        {
+           
+            display:inline;
+        }
+    </style>
+</head>
+<body>
+{% csrf_token %}
+    <div>
+        {% csrf_token %}
+        <form action="{% url 'generate' %}" method="POST" target="_blank">
+            {% csrf_token %}
+            <fieldset>
+                <legend>resume details</legend>
+                    <fieldset>
+                        <legend>personal details</legend>
+                <label for="firstName" >First Name</label>
+                <input type="text" minlength="3" id="firstName" name="firstName" >
+                <label for="lastName" >last Name</label>
+                <input type="text" minlength="3" id="lastName" name="lastName" >
+                <label for="email" >mail</label>
+                <input type="email" minlength="3" id="email" name="email"  >
+                <label for="mnumber" >phone number</label>
+                <input type="number" minlength="10" id="mnumber" name="mnumber"  >
+                <label for="dob" >date of birth</label>
+                <input type="date" id="dob" name="dob"  >
+                <label for="linkedin" >linked In</label>
+                <input type="text" id="linkedin" name="linkedin" >
+                
+            </fieldset>
+            <label for="summary" >summary</label>
+            <textarea  id="summary" name="summary" rows="6" cols="200"></textarea>
+            <fieldset>
+
+                <legend>education details</legend>
+                <div id="educationdetails">
+                    
+                    <lable for="courseduration">course duration[from-to]</lable>
+                    <input type="text"  id="courseduration1" name="courseduration1">
+                    <lable for="standard">standard</lable>
+                    <input type="text"  id="standard1" name="standard1">
+                    <label for="college">college/institution</label>
+                    <input type="text"  id="college1" name="college1">
+                    <label for="cgpa">cgpa/percentage</label>
+                    <input type="number"  id="cgpa1" name="cgpa1">
+                    <input style="display: None;" name="val" id="val" value="1">
+                    <button onclick="addeducationdetails();return false"  id="addbtn" name="addbtn" value="">+</button><br><br>
+                    <script>
+                        a=2
+                        function addeducationdetails()
+                        {
+                            const addbtn=document.getElementById("val")
+                            addbtn.setAttribute('value',a)
+                            btn=document.getElementById('educationdetails');
+                            const lable=document.createElement('lable');
+                            lable.for='courseduration'+a;
+                            lable.textContent="course duration[from-to] ";
+                            btn.append(lable);
+                            const input = document.createElement('input');
+                            input.type = 'text';
+                            input.name='courseduration'+a;
+                            //input.placeholder=addbtn.value
+                            btn.append(input);
+                            const lable2=document.createElement('lable');
+                            lable2.for='standard'+a;
+                            lable2.textContent=" standard ";
+                            btn.append(lable2);
+                            const input2= document.createElement('input');
+                            input2.type = 'text';
+                            input2.name='standard'+a;
+                            btn.append(input2);
+                            const lable3=document.createElement('lable');
+                            lable3.for='college'+a;
+                            lable3.textContent=" college/institution ";
+                            btn.append(lable3);
+                            const input3= document.createElement('input');
+                            input3.type = 'text';
+                            input3.name='college'+a;
+                            btn.append(input3);
+                            const lable4=document.createElement('lable');
+                            lable4.for='cgpa'+a;
+                            lable4.textContent=" cgpa/percentage ";
+                            btn.append(lable4);
+                            const input4= document.createElement('input');
+                            input4.type = 'text';
+                            input4.name='cgpa'+a;
+                            //input.placeholder=input.name
+                            btn.append(input4);
+                            const br=document.createElement('br');
+                            btn.append(br);
+                            const br2=document.createElement('br');
+                            btn.append(br2);
+                            
+                            
+                            a+=1
+                            //btn.innerHTML+="<br><br>"
+                        }
+
+                        
+                    </script>
+
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <legend>professional details</legend>
+                <div id="professionaldetails">
+                    <lable for="projectduration">project duration[from-to]</lable>
+                    <input type="text"  id="projectduration1" name="projectduration1">
+                    <lable for="projectname">project name</lable>
+                    <input type="text"  id="projectname1" name="projectname1">
+                    <label for="role">role</label>
+                    <input type="text"  id="role1" name="role1"><br>
+                    <label for="projectdescription">project description</label>
+                    <textarea rows="6" cols="150"  id="projectdescription1" name="projectdescription1"></textarea>
+                    <input style="display: None;" name="val1" id="val1" value="1">
+                    <button type="button" onclick="addprofessionaldetails()" id="addbtn2" value="addbtn2">+</button><br><br>
+                    <script>
+                        b=2
+                        function addprofessionaldetails()
+                        {
+                            val1=document.getElementById('val1')
+                            val1.setAttribute('value',b)
+                        btn=document.getElementById('professionaldetails')
+                        const lable=document.createElement('lable');
+                            lable.for='projectduration'+a;
+                            lable.textContent="projectduration[from-to] ";
+                            btn.append(lable);
+                            const input = document.createElement('input');
+                            input.type = 'text';
+                            input.name='projectduration'+b;
+                            //input.placeholder=input.name
+                            btn.append(input);
+                            const lable2=document.createElement('lable');
+                            lable2.for='projectname'+b;
+                            lable2.textContent=" projectname ";
+                            btn.append(lable2);
+                            const input2= document.createElement('input');
+                            input2.type = 'text';
+                            input2.name='projectname'+b;
+                            btn.append(input2);
+                            const lable3=document.createElement('lable');
+                            lable3.for='role'+b;
+                            lable3.textContent=" role ";
+                            btn.append(lable3);
+                            const input3= document.createElement('input');
+                            input3.type = 'text';
+                            input3.name='role'+b;
+                            //input.placeholder=input.name
+                            btn.append(input3);
+                            const br3=document.createElement('br');
+                            btn.append(br3);
+                            const lable4=document.createElement('lable');
+                            lable4.for='projectdescription'+b;
+                            lable4.textContent=" projectdescription ";
+                            btn.append(lable4);
+                            const input4= document.createElement('TEXTAREA');
+                            input4.setAttribute('cols',150)
+                            input4.setAttribute('rows',6)
+                            input4.name='projectdescription'+b;
+                            btn.append(input4);
+                            const br=document.createElement('br');
+                            btn.append(br);
+                            const br2=document.createElement('br');
+                            btn.append(br2);
+                            const addbtn=document.getElementById("addbtn2")
+                            addbtn.setAttribute('value',b)
+                            b+=1
+                        }
+                    </script>
+
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <legend>skills</legend>
+                <h1>technical skills</h1>
+                <div id="skills">
+                    <input type="text "  id="skill1" name="skill1">
+                    <input style="display: None;" name="val2" id="val2" value="1">
+                    <button  type="button" onclick="addskills()"  id="addbtn3" name="addbtn3">+</button><br><br>
+                <script>
+                    c=2
+                    function addskills()
+                    {
+                        val2=document.getElementById('val2')
+                        val2.setAttribute('value',c)
+                        btn=document.getElementById('skills')
+                        const input=document.createElement('input')
+                        input.type='text'
+                        input.name='skill'+c
+                        //input.placeholder=input.name
+                        btn.append(input)
+                        const br=document.createElement('br');
+                        btn.append(br);
+                        const br2=document.createElement('br');
+                        btn.append(br2);
+                        const addbtn=document.getElementById("addbtn")
+                        addbtn.setAttribute('value',c)
+                        c+=1
+                    }
+                </script>
+                </div>
+            </fieldset>
+            <input type="submit">
+                </fieldset>
+    </form>
+    </div>
+</body>
+</html>

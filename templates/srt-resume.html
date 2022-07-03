@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+
+	<title>{{personaldetails.firstname}} resume</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> 
+	<link rel="stylesheet" type="text/css" href="resume.css" media="all" />
+<style>
+	table,th,td{
+		border:2px solid black;
+	}
+	td,th
+	{
+		padding: 10px;
+	}
+	#edtable
+	{
+	
+		margin: 50px;
+	}
+	h1,h2,h3{
+		margin: 10px;
+		font-weight: bold;
+	}
+	.yui-gc
+	{
+		border:2px solid black;
+	}
+</style>
+</head>
+<body>
+
+<div id="doc2" class="yui-t7">
+	<div id="inner">
+	
+		<div id="hd">
+			<div class="yui-gc">
+				<div class="yui-u first">
+					<h1>
+						{{personaldetails.firstname}}
+						
+					</h1>
+					<h2>{{personaldetails.lastname}}</h2>
+				</div>
+
+				<div class="yui-u">
+					<div class="contact-info">
+<a href="download">download</a>
+						<h3><a href="">{{personaldetails.email}}</a></h3>
+						<h3>ph no:{{personaldetails.mnumber}}</h3>
+						<h3>date of birth:{{personaldetails.dob}}</h3>
+						<h3>Linkedin:{{personaldetails.linkedin}}</h3>
+					</div><!--// .contact-info -->
+				</div>
+			</div><!--// .yui-gc -->
+		</div><!--// hd -->
+
+		<div id="bd">
+			<div id="yui-main">
+				<div class="yui-b">
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>summary</h2>
+						</div>
+						<div class="yui-u">
+							<p class="enlarge">
+
+								{{personaldetails.summary}}
+							</p>
+						</div>
+					</div><!--// .yui-gf -->
+
+				<!----	<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Skills</h2>
+						</div>
+						<div class="yui-u">
+							{%for x in skills%} 
+							
+								<div class="talent">
+									<h2>{{x}}</h2>
+								</div>
+							{%endfor%}
+								
+						</div>
+					</div><!--// .yui-gf -->
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Technical skills</h2>
+						</div>
+						<div class="yui-u">
+							<ul>
+								{% for skill in skills %}
+								<li>{{skill}}</li>
+							
+								{%endfor%}
+							</ul>
+						</div>
+					</div><!--// .yui-gf-->
+					<div class="yui-gf">
+	
+						<div class="yui-u first">
+							<h2>Experience</h2>
+						</div><!--// .yui-u -->
+
+						<div class="yui-u">
+							<table>
+								<thead>
+									<th> project name</th>
+									<th> project name</th>
+									<th> role</th>
+									<th> project description</th>
+								</thead>
+								<tbody>
+									{%for x in professionaldetails%} 
+									<tr>
+										<td>{{x.projectname}}</td>
+										<td>{{x.projectduration}}</td>
+										<td>{{x.role}}</td>
+										<td>{{x.projectdescription}}</td>
+									</tr>
+									{%endfor%}
+								</tbody>
+							</table>
+						
+
+						</div><!--// .yui-u -->
+					</div><!--// .yui-gf -->
+
+
+					<div class="yui-gf last">
+						<div class="yui-u first">
+							<h2>Education</h2>
+						</div>
+						<table id="edtable">
+							<thead>
+								<th> college name</th>
+								<th> course name</th>
+								<th> duration </th>
+								<th> cgpa </th>
+							</thead>
+							<tbody>
+								{%for x in educationdetails%} 
+								<tr>
+									<td>{{x.college}}</td>
+									<td>{{x.standard}}</td>
+									<td>{{x.courseduration}}</td>
+									<td>{{x.cgpa}}</td>
+								</tr>
+								{%endfor%}
+							</tbody>
+						</table>
+						
+						
+					</div><!--// .yui-gf -->
+
+
+				</div><!--// .yui-b -->
+			</div><!--// yui-main -->
+		</div><!--// bd -->
+
+		<div id="ft">
+			<p>{{personaldetails.firstname}}{{personaldetails.lastname}} &mdash; <a href="{{personaldetails.email}}">{{personaldetails.email}}</a> &mdash;{{personaldetails.mnumber}}</p>
+		</div><!--// footer -->
+
+	</div><!-- // inner -->
+
+
+</div><!--// doc -->
+
+
+</body>
+</html>
+
